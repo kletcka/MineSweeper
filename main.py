@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import font
 import keyboard
 import json
-
 file = {}
 with open('settings.json', 'r', encoding='utf-8') as read_file:
     file = dict(json.load(read_file))
@@ -76,6 +75,39 @@ def green():
                     for n in btns:
                         if n.pos == (j[0]+i[0], j[1]+i[1]):
                             if n["text"] != "🚩":
+                                n.grid_forget()
+                                n.en = False
+
+                        if n.pos == (j[0]+i[0]+1, j[1]+i[1]) and n["text"] != "🚩":
+                            if j[0]+i[0]+1 in range(glx) and j[1]+i[1] in range(gly)and (j[0]+i[0]+1, j[1]+i[1]) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0]-1, j[1]+i[1]) and n["text"] != "🚩":
+                            if j[0]+i[0]-1 in range(glx) and j[1]+i[1] in range(gly) and (j[0]+i[0]-1, j[1]+i[1]) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0], j[1]+i[1]+1) and n["text"] != "🚩":  
+                            if j[0]+i[0] in range(glx) and j[1]+i[1]+1 in range(gly) and (j[0]+i[0], j[1]+i[1]+1) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0], j[1]+i[1]-1) and n["text"] != "🚩":  
+                            if j[0]+i[0] in range(glx) and j[1]+i[1]-1 in range(gly) and (j[0]+i[0], j[1]+i[1]-1) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0]+1, j[1]+i[1]+1) and n["text"] not in ["🚩", " ", "💣"]:  
+                            if j[0]+i[0]+1 in range(glx) and j[1]+i[1]+1 in range(gly)and (j[0]+i[0]+1, j[1]+i[1]+1) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0]-1, j[1]+i[1]+1) and n["text"] not in ["🚩", " ", "💣"]:   
+                            if j[0]+i[0]-1 in range(glx) and j[1]+i[1]+1 in range(gly) and (j[0]+i[0]-1, j[1]+i[1]+1) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0]+1, j[1]+i[1]-1) and n["text"] not in ["🚩", " ", "💣"]:  
+                            if j[0]+i[0]+1 in range(glx) and j[1]+i[1]-1 in range(gly) and (j[0]+i[0]+1, j[1]+i[1]-1) not in check_list:
+                                n.grid_forget()
+                                n.en = False
+                        if n.pos == (j[0]+i[0]-1, j[1]+i[1]-1) and n["text"] not in ["🚩", " ", "💣"]:  
+                            if j[0]+i[0]-1 in range(glx) and j[1]+i[1]-1 in range(gly) and (j[0]+i[0]-1, j[1]+i[1]-1) not in check_list:
                                 n.grid_forget()
                                 n.en = False
                     counter += 1
